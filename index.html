@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Couch to First Stripe — Beginner Brazilian Jiu-Jitsu</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect x='10' y='15' width='64' height='30' fill='%23163b2a'/%3E%3Crect x='74' y='15' width='12' height='30' fill='%2352c878'/%3E%3Crect x='86' y='15' width='14' height='30' fill='%23163b2a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mat-navy: #163b2a;         /* deep, grounded green — warmer than near-black */
+    --mat-navy-deep: #0d271b;    /* deeper shade, still not pitch black */
+    --chalk: #f2efe7;            /* belt white, unchanged */
+    --chalk-dim: #cfd3c3;
+    --stripe-gold: #52c878;      /* emerald — vivid and energetic, not neon */
+    --stripe-gold-bright: #8ee8a8; /* soft bright highlight for hover/emphasis */
+    --tatami-green: #2e8b57;     /* sea green, secondary */
+    --ink: #10160f;              /* near-black, green-tinted, for text on light bg */
+    --rust: #8b5e3c;             /* warm wood tone — neutral accent */
+    --display: 'Big Shoulders Display', sans-serif;
+    --body: 'Work Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--body);
+    background:var(--chalk);
+    color:var(--ink);
+    line-height:1.55;
+  }
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:800;
+    letter-spacing:0.01em;
+    margin:0;
+    text-transform:uppercase;
+  }
+
+  a{color:inherit;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--stripe-gold);
+  }
+
+  section{padding:5.5rem 1.5rem;}
+  .wrap{max-width:920px; margin:0 auto;}
+
+  /* ---------- SITE NAV ---------- */
+  .site-nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--mat-navy-deep);
+    padding:0.7rem 1.5rem;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid rgba(242,239,231,0.1);
+  }
+  .site-nav .brand{
+    display:flex; align-items:center; gap:0.55rem;
+    text-decoration:none;
+  }
+  .site-nav .brand svg{display:block;}
+  .site-nav .brand span{
+    font-family:var(--display); font-weight:800;
+    color:var(--chalk); font-size:0.85rem;
+    letter-spacing:0.03em; text-transform:uppercase;
+  }
+  .site-nav .nav-cta{
+    font-family:var(--mono); font-size:0.7rem;
+    color:var(--chalk-dim); text-decoration:none;
+    border:1px solid rgba(242,239,231,0.28);
+    padding:0.4rem 0.8rem; border-radius:2px;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+  .site-nav .nav-cta:hover{color:var(--chalk); border-color:var(--chalk);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(ellipse at top, var(--mat-navy) 0%, var(--mat-navy-deep) 75%);
+    color:var(--chalk);
+    padding:6rem 1.5rem 5rem;
+    text-align:center;
+  }
+  .hero .eyebrow{display:block; margin-bottom:1.4rem;}
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    line-height:0.98;
+  }
+  .hero .sub{
+    max-width:560px;
+    margin:1.6rem auto 0;
+    color:var(--chalk-dim);
+    font-size:1.08rem;
+  }
+
+  .belt-wrap{
+    margin:3rem auto 2.5rem;
+    max-width:560px;
+  }
+  .belt-wrap svg{width:100%; height:auto; display:block;}
+
+  .cta-row{
+    margin-top:2.4rem;
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:0.95rem 1.8rem;
+    border-radius:2px;
+    border:1px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--stripe-gold);
+    color:var(--ink);
+    box-shadow:0 2px 8px rgba(16,22,15,0.18);
+  }
+  .btn-primary:hover{background:var(--stripe-gold-bright); transform:translateY(-1px); box-shadow:0 4px 12px rgba(16,22,15,0.22);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--chalk-dim);
+    border-color:rgba(242,239,231,0.28);
+  }
+  .btn-ghost:hover{border-color:var(--chalk); color:var(--chalk);}
+  .btn:focus-visible{outline:2px solid var(--stripe-gold-bright); outline-offset:3px;}
+
+  /* ---------- WHAT THIS IS ---------- */
+  .what-is{background:var(--chalk);}
+  .what-is .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:start;
+  }
+  .what-is h2{font-size:clamp(1.8rem, 3.4vw, 2.6rem); color:var(--mat-navy);}
+  .what-is p{font-size:1.02rem; color:#3a3a36;}
+  .tatami-mark{
+    width:100%;
+    aspect-ratio:1/1;
+    max-width:280px;
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how{
+    background:var(--mat-navy-deep);
+    color:var(--chalk);
+  }
+  .how .eyebrow{color:var(--stripe-gold);}
+  .how h2{font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-top:0.6rem; margin-bottom:3rem;}
+
+  .track{
+    position:relative;
+    margin:0 0 3.5rem;
+    padding-left:0;
+    height:6px;
+    background:rgba(242,239,231,0.15);
+    border-radius:3px;
+    max-width:640px;
+  }
+  .track-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--chalk-dim), var(--stripe-gold));
+    border-radius:3px;
+    transition:width 1.1s ease;
+  }
+
+  .steps{
+    display:grid;
+    gap:2.4rem;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:1.2rem;
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .step.is-visible{opacity:1; transform:translateY(0);}
+  .step-num{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    color:var(--mat-navy);
+    background:var(--chalk-dim);
+    width:44px; height:44px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid transparent;
+  }
+  .step.is-final .step-num{
+    background:var(--stripe-gold);
+    color:var(--ink);
+    box-shadow:0 0 0 4px rgba(82,200,120,0.22);
+  }
+  .step h3{
+    font-family:var(--body);
+    font-weight:600;
+    text-transform:none;
+    font-size:1.18rem;
+    letter-spacing:0;
+    color:var(--chalk);
+    margin-bottom:0.3rem;
+  }
+  .step p{margin:0; color:var(--chalk-dim); font-size:0.98rem;}
+
+  /* ---------- GEAR ---------- */
+  .gear{background:var(--chalk);}
+  .gear h2{font-size:clamp(1.8rem, 3.4vw, 2.6rem); color:var(--mat-navy); margin-bottom:2.6rem;}
+  .gear-list{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.6rem;
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .gear-list li{
+    border-top:2px solid var(--mat-navy);
+    padding-top:1rem;
+  }
+  .gear-list .tag{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    display:block;
+    margin-bottom:0.4rem;
+  }
+  .gear-list p{margin:0; color:#3a3a36; font-size:0.96rem;}
+
+  /* ---------- STRIPE DAY ---------- */
+  .stripe-day{
+    background:linear-gradient(180deg, var(--mat-navy) 0%, var(--mat-navy-deep) 100%);
+    color:var(--chalk);
+    text-align:center;
+  }
+  .stripe-day .eyebrow{color:var(--stripe-gold);}
+  .stripe-day h2{font-size:clamp(2rem, 4vw, 3rem); margin:0.6rem 0 1.6rem;}
+  .stripe-day p{
+    max-width:600px; margin:0 auto;
+    color:var(--chalk-dim);
+    font-size:1.08rem;
+  }
+  .stripe-day .mark{color:var(--stripe-gold-bright); font-weight:600;}
+
+  /* ---------- SIGNUP ---------- */
+  .signup{background:var(--chalk); text-align:center;}
+  .signup h2{font-size:clamp(1.7rem, 3.2vw, 2.3rem); color:var(--mat-navy);}
+  .signup p{color:#3a3a36; max-width:480px; margin:0.8rem auto 2rem;}
+  .signup-form{
+    display:flex; gap:0.6rem; justify-content:center; flex-wrap:wrap;
+    max-width:460px; margin:0 auto;
+  }
+  .signup-form input[type="email"]{
+    flex:1; min-width:220px;
+    padding:0.9rem 1rem;
+    font-family:var(--body);
+    font-size:0.95rem;
+    border:1.5px solid var(--mat-navy);
+    border-radius:2px;
+    background:#fff;
+    color:var(--ink);
+  }
+  .signup-form input[type="email"]:focus-visible{outline:2px solid var(--rust); outline-offset:2px;}
+  .signup-form button{
+    background:var(--mat-navy); color:var(--chalk);
+    border:none;
+  }
+  .signup-form button:hover{background:var(--mat-navy-deep);}
+  .signup-msg{
+    margin-top:1.1rem;
+    font-family:var(--mono);
+    font-size:0.85rem;
+    color:var(--tatami-green);
+    min-height:1.2rem;
+  }
+
+  /* ---------- INSTRUCTOR ---------- */
+  .instructor{background:var(--chalk);}
+  .instructor-wrap{
+    display:flex;
+    align-items:center;
+    gap:2.2rem;
+    flex-wrap:wrap;
+  }
+  .instructor .photo{
+    width:120px; height:120px;
+    border-radius:50%;
+    background:#dedbcf;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .instructor .info{flex:1; min-width:240px;}
+  .instructor .info h2{
+    color:var(--mat-navy);
+    font-size:clamp(1.6rem, 3vw, 2.2rem);
+    margin-top:0.4rem;
+  }
+  .instructor .credential{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--rust);
+    margin:0.5rem 0 0.9rem;
+  }
+  .instructor .info p{color:#3a3a36; font-size:0.98rem; font-style:italic;}
+
+  /* ---------- FOOTER ---------- */
+  .social-row{
+    display:flex; justify-content:center; gap:1rem;
+    margin-top:1rem;
+  }
+  .social-row a{
+    color:var(--chalk-dim);
+    display:flex; align-items:center; justify-content:center;
+    transition:color 0.15s ease;
+  }
+  .social-row a:hover, .social-row a:focus-visible{color:var(--stripe-gold-bright);}
+
+  footer{
+    background:var(--ink);
+    color:var(--chalk-dim);
+    text-align:center;
+    padding:2.2rem 1.5rem;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+  }
+  footer a{color:var(--chalk);}
+  footer .fine{opacity:0.55; display:block; margin-top:0.5rem;}
+
+  @media (max-width:720px){
+    .what-is .wrap{grid-template-columns:1fr;}
+    .tatami-mark{margin:0 auto; max-width:180px;}
+    .gear-list{grid-template-columns:1fr;}
+    .gear-list li{border-top:none; border-left:2px solid var(--mat-navy); padding:0 0 0 1rem;}
+    .instructor-wrap{flex-direction:column; text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="#" class="brand" aria-label="Couch to First Stripe home">
+    <svg width="34" height="20" viewBox="0 0 100 60">
+      <rect x="10" y="15" width="64" height="30" fill="var(--chalk)"/>
+      <rect x="74" y="15" width="12" height="30" fill="var(--stripe-gold)"/>
+      <rect x="86" y="15" width="14" height="30" fill="var(--chalk)"/>
+    </svg>
+    <span>Couch to First Stripe</span>
+  </a>
+  <a href="#signup" class="nav-cta">Get Notified</a>
+</header>
+
+<header class="hero">
+  <span class="eyebrow">Adult Beginner Program · No Experience Needed</span>
+  <h1>Couch to<br>First Stripe</h1>
+  <p class="sub">A no-experience-needed introduction to Brazilian Jiu-Jitsu — built for adults who've never set foot on a mat.</p>
+
+  <div class="belt-wrap">
+    <svg viewBox="0 0 600 220" role="img" aria-label="Illustration of a tied jiu-jitsu belt with a single green stripe">
+      <g stroke="none">
+        <rect x="40" y="92" width="230" height="26" fill="#f2efe7"/>
+        <rect x="330" y="92" width="230" height="26" fill="#f2efe7"/>
+        <g transform="translate(300,105)">
+          <rect x="-34" y="-16" width="68" height="32" fill="#f2efe7" transform="rotate(18)"/>
+          <rect x="-34" y="-16" width="68" height="32" fill="#f2efe7" transform="rotate(-18)"/>
+        </g>
+        <g transform="translate(300,105) rotate(24)">
+          <rect x="-13" y="8" width="26" height="82" fill="#f2efe7"/>
+          <rect x="-13" y="62" width="26" height="14" fill="#52c878"/>
+        </g>
+        <g transform="translate(300,105) rotate(-30)">
+          <rect x="-13" y="8" width="26" height="70" fill="#f2efe7"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cta-row">
+    <a href="#signup" class="btn btn-primary">Get Notified When Enrollment Opens</a>
+    <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+  </div>
+</header>
+
+<section class="what-is">
+  <div class="wrap">
+    <div>
+      <h2>What This Is</h2>
+      <p>Couch to First Stripe is a beginner-friendly introduction to Brazilian Jiu-Jitsu, built for adults who've never trained before. Inspired by programs like Couch to 5K, it takes you from zero experience through the real foundations of the art: safe falling, escapes, positional control, and mat awareness, while building genuine fitness along the way.</p>
+      <p>Every class is built for newcomers. No gear required to start, no prior athleticism assumed, no ego at the door. Come curious. Leave capable.</p>
+    </div>
+    <svg class="tatami-mark" viewBox="0 0 200 200" role="img" aria-label="Woven tatami mat pattern">
+      <rect width="200" height="200" fill="none"/>
+      <g stroke="#163b2a" stroke-width="2" fill="none" opacity="0.85">
+        <rect x="10" y="10" width="85" height="85"/>
+        <rect x="105" y="10" width="85" height="85"/>
+        <rect x="10" y="105" width="85" height="85"/>
+        <rect x="105" y="105" width="85" height="85"/>
+        <line x1="10" y1="52.5" x2="95" y2="52.5"/>
+        <line x1="105" y1="52.5" x2="190" y2="52.5"/>
+        <line x1="10" y1="147.5" x2="95" y2="147.5"/>
+        <line x1="105" y1="147.5" x2="190" y2="147.5"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="how" id="how-it-works">
+  <div class="wrap">
+    <span class="eyebrow">The Path</span>
+    <h2>How It Works</h2>
+
+    <div class="track"><div class="track-fill" id="trackFill"></div></div>
+
+    <div class="steps" id="steps">
+      <div class="step" data-step="1">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Move Safely</h3>
+          <p>Learn to fall, roll, and shrimp — the physical basics everyone starts with, before anything else.</p>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Hold Your Ground</h3>
+          <p>Build the posture and base that keep you from getting stuck, on top or on bottom.</p>
+        </div>
+      </div>
+      <div class="step" data-step="3">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Escape Anything</h3>
+          <p>Get out of mount and side control, even under real pressure.</p>
+        </div>
+      </div>
+      <div class="step" data-step="4">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Defend Your Guard</h3>
+          <p>Keep control from the bottom, no matter who's on top.</p>
+        </div>
+      </div>
+      <div class="step is-final" data-step="5">
+        <div class="step-num">05</div>
+        <div>
+          <h3>Stripe Day</h3>
+          <p>Show what you've built, live, and earn your first stripe.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gear">
+  <div class="wrap">
+    <h2>What You'll Need</h2>
+    <ul class="gear-list">
+      <li>
+        <span class="tag">Required</span>
+        <p>A gi (kimono). A simple, beginner-friendly option will be shared with enrolled students before the first class.</p>
+      </li>
+      <li>
+        <span class="tag">Bring</span>
+        <p>Comfortable athletic wear to train underneath.</p>
+      </li>
+      <li>
+        <span class="tag">Not Required</span>
+        <p>Any prior experience, athleticism, or gear beyond the gi. Everyone starts on the couch.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="stripe-day">
+  <div class="wrap">
+    <span class="eyebrow">The Payoff</span>
+    <h2>Stripe Day</h2>
+    <p>Every season ends the same way. It's not a test you cram for — it's a chance to show, live, that the fundamentals you built over the past several weeks actually hold up. When your instructor ties that <span class="mark">first stripe</span> onto your belt, it means one thing: you're no longer on the couch.</p>
+  </div>
+</section>
+
+<section class="instructor">
+  <div class="wrap instructor-wrap">
+    <div class="photo" aria-hidden="true">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#8a887c" stroke-width="1.3">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </div>
+    <div class="info">
+      <span class="eyebrow" style="color:var(--rust);">Meet Your Instructor</span>
+      <h2>Mark <span style="opacity:0.5; font-size:0.6em; text-transform:none;">[Last Name]</span></h2>
+      <div class="credential">Brazilian Jiu-Jitsu Brown Belt · Gracie Barra Escondido</div>
+      <p>[Placeholder — replace with a short bio: how long you've trained, your background under Gracie Barra, and why you built Couch to First Stripe for people who've never set foot on a mat before.]</p>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap">
+    <h2>Be the First to Know</h2>
+    <p>Enrollment opens through your local community education or recreation catalog. Leave your email and we'll let you know the moment a new season opens near you.</p>
+    <form class="signup-form" id="signupForm">
+      <label for="emailInput" style="position:absolute; left:-9999px;">Email address</label>
+      <input type="email" id="emailInput" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-primary">Notify Me</button>
+    </form>
+    <p class="signup-msg" id="signupMsg" aria-live="polite"></p>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+    <svg width="26" height="16" viewBox="0 0 100 60" aria-hidden="true">
+      <rect x="10" y="15" width="64" height="30" fill="var(--chalk-dim)"/>
+      <rect x="74" y="15" width="12" height="30" fill="var(--stripe-gold)"/>
+      <rect x="86" y="15" width="14" height="30" fill="var(--chalk-dim)"/>
+    </svg>
+    <span>COUCH TO FIRST STRIPE</span>
+  </div>
+  <div style="margin-top:0.6rem;">
+    <a href="#" target="_blank" rel="noopener">couchtofirststripe.com</a> ·
+    <a href="#" target="_blank" rel="noopener">@couchtofirststripe</a>
+  </div>
+  <div class="social-row" aria-label="Social media links">
+    <a href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.4" cy="6.6" r="1"/>
+      </svg>
+    </a>
+    <a href="#" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+        <path d="M10.5 9.3v5.4l4.7-2.7z" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="12" cy="12" r="9.5"/>
+        <path d="M14 8.5h-1.6c-.7 0-1.2.5-1.2 1.3V11H14l-.4 2.4h-2.4V19h-2.4v-5.6H7V11h1.8V9.6C8.8 7.6 10 6.3 12 6.3h2z" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </div>
+  <span class="fine">Update the domain, handle, and social links above to match your actual accounts before publishing. Facebook and Instagram handles still need confirming.</span>
+</footer>
+
+<script>
+  // Scroll-reveal for steps + progress track fill
+  (function(){
+    var steps = document.querySelectorAll('.step');
+    var fill = document.getElementById('trackFill');
+    var total = steps.length;
+    var seen = new Set();
+
+    function updateFill(){
+      var pct = (seen.size / total) * 100;
+      fill.style.width = pct + '%';
+    }
+
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            seen.add(entry.target.dataset.step);
+            updateFill();
+          }
+        });
+      }, {threshold:0.4});
+      steps.forEach(function(s){ obs.observe(s); });
+    } else {
+      steps.forEach(function(s){ s.classList.add('is-visible'); seen.add(s.dataset.step); });
+      updateFill();
+    }
+  })();
+
+  // Signup form — front-end only placeholder, no data is stored or sent anywhere yet
+  document.getElementById('signupForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = document.getElementById('signupMsg');
+    var email = document.getElementById('emailInput').value.trim();
+    if(email){
+      msg.textContent = "Thanks — you're on the list. We'll email you when enrollment opens.";
+      document.getElementById('emailInput').value = '';
+    }
+  });
+</script>
+
+</body>
+</html>
