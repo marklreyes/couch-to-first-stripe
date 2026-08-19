@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Couch to First Stripe</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect x='10' y='15' width='64' height='30' fill='%23163b2a'/%3E%3Crect x='74' y='15' width='12' height='30' fill='%2352c878'/%3E%3Crect x='86' y='15' width='14' height='30' fill='%23163b2a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mat-navy: #163b2a;
+    --mat-navy-deep: #0d271b;
+    --chalk: #f2efe7;
+    --chalk-dim: #cfd3c3;
+    --stripe-gold: #52c878;
+    --display: 'Big Shoulders Display', sans-serif;
+    --body: 'Work Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:var(--body); text-align:center; padding:2rem 1.5rem;
+    background:radial-gradient(ellipse at top, var(--mat-navy) 0%, var(--mat-navy-deep) 75%);
+    color:var(--chalk);
+  }
+  .box{max-width:480px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:0.75rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--stripe-gold); display:block; margin-bottom:1.2rem;
+  }
+  h1{
+    font-family:var(--display); font-weight:800; text-transform:uppercase;
+    font-size:clamp(2rem, 5vw, 3rem); margin:0 0 1.2rem; line-height:1.05;
+  }
+  p{color:var(--chalk-dim); font-size:1.02rem; margin:0 0 2rem;}
+  .icon-wrap{margin-bottom:1.5rem;}
+  .back{
+    font-family:var(--mono); font-size:0.8rem; text-decoration:none;
+    color:var(--chalk); border:1px solid rgba(242,239,231,0.3);
+    padding:0.7rem 1.4rem; border-radius:2px; display:inline-block;
+    transition:border-color 0.15s ease;
+  }
+  .back:hover{border-color:var(--chalk);}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon-wrap">
+      <svg width="70" height="42" viewBox="0 0 100 60">
+        <rect x="10" y="15" width="64" height="30" fill="var(--chalk)"/>
+        <rect x="74" y="15" width="12" height="30" fill="var(--stripe-gold)"/>
+        <rect x="86" y="15" width="14" height="30" fill="var(--chalk)"/>
+      </svg>
+    </div>
+    <span class="eyebrow">You're On The List</span>
+    <h1>See You Off The Couch Soon</h1>
+    <p>You'll get an email the moment a new season opens near you. In the meantime — no experience needed, no gear required to start. Just show up curious.</p>
+    <a href="index.html" class="back">← Back to Couch to First Stripe</a>
+  </div>
+</body>
+</html>
