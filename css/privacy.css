@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Couch to First Stripe — privacy policy (privacy.html)
+   Requires base.css.
+   ========================================================================== */
+
+.page{
+  padding:4rem 1.5rem 6rem;
+  line-height:1.65;
+}
+
+.back-link{
+  display:inline-block; margin-bottom:2rem;
+  font-family:var(--mono); font-size:0.8rem; text-decoration:none;
+  color:var(--mat-navy);
+}
+.back-link:hover{color:var(--rust);}
+
+.page-title{
+  font-size:clamp(1.8rem, 4vw, 2.6rem);
+  margin:0 0 0.3rem;
+}
+.updated{
+  font-family:var(--mono); font-size:0.78rem; color:var(--stone-light); margin-bottom:2.5rem;
+}
+
+.callout{
+  background:#fff; border-left:4px solid var(--stripe-gold);
+  padding:1rem 1.3rem; margin-bottom:2.5rem;
+  font-size:0.92rem; color:var(--stone);
+}
+.callout strong{color:var(--mat-navy);}
+
+.prose p a, .prose li a{color:var(--rust);}
+.prose h2{font-size:1.2rem; margin:2.2rem 0 0.6rem;}
+.prose p, .prose li{font-size:0.98rem;}
+.prose ul{padding-left:1.3rem;}

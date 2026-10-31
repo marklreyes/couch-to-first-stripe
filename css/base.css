@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Couch to First Stripe — shared base styles
+   Loaded by every page. Page-specific styles live in their own file.
+   ========================================================================== */
+
+/* ---------- TOKENS ---------- */
+/* Palette values are a deliberate brand decision (see CLAUDE.md). Names are
+   historical: "navy" and "gold" are both greens. */
+:root{
+  --mat-navy: #163b2a;         /* deep, grounded green — warmer than near-black */
+  --mat-navy-deep: #0d271b;    /* deeper shade, still not pitch black */
+  --chalk: #f2efe7;            /* belt white, unchanged */
+  --chalk-dim: #cfd3c3;
+  --stripe-gold: #52c878;      /* emerald — vivid and energetic, not neon */
+  --stripe-gold-bright: #8ee8a8; /* soft bright highlight for hover/emphasis */
+  --tatami-green: #2e8b57;     /* sea green, secondary */
+  --ink: #10160f;              /* near-black, green-tinted, for text on light bg */
+  --rust: #8b5e3c;             /* warm wood tone — neutral accent */
+
+  --stone: #3a3a36;            /* body copy on light backgrounds */
+  --stone-light: #6b6b64;      /* secondary/meta text on light backgrounds */
+  --line-on-dark: rgba(242,239,231,0.28);
+
+  --display: 'Big Shoulders Display', sans-serif;
+  --body: 'Work Sans', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+/* ---------- RESET / BASE ---------- */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+body{
+  margin:0;
+  font-family:var(--body);
+  background:var(--chalk);
+  color:var(--ink);
+  line-height:1.55;
+}
+
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:800;
+  letter-spacing:0.01em;
+  margin:0;
+  text-transform:uppercase;
+  color:var(--heading, currentColor);
+}
+
+p, li{color:var(--text-body, currentColor);}
+
+a{color:inherit;}
+
+/* ---------- SURFACES ----------
+   A surface sets the background and the color tokens its children use, so
+   components (headings, body copy, eyebrows) don't need light/dark variants. */
+.surface-light{
+  background:var(--chalk);
+  color:var(--ink);
+  --heading: var(--mat-navy);
+  --text-body: var(--stone);
+  --accent: var(--rust);
+}
+.surface-dark{
+  background:var(--mat-navy-deep);
+  color:var(--chalk);
+  --heading: var(--chalk);
+  --text-body: var(--chalk-dim);
+  --accent: var(--stripe-gold);
+}
+/* Radial green glow used behind the hero and the success page. */
+.surface-glow{
+  background:radial-gradient(ellipse at top, var(--mat-navy) 0%, var(--mat-navy-deep) 75%);
+}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:920px; margin:0 auto;}
+.wrap--narrow{max-width:720px;}
+
+/* ---------- TYPE COMPONENTS ---------- */
+.eyebrow{
+  font-family:var(--mono);
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--accent, var(--stripe-gold));
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  font-family:var(--mono);
+  font-size:0.82rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:0.95rem 1.8rem;
+  border-radius:2px;
+  border:1px solid transparent;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn-primary{
+  background:var(--stripe-gold);
+  color:var(--ink);
+  box-shadow:0 2px 8px rgba(16,22,15,0.18);
+}
+.btn-primary:hover{background:var(--stripe-gold-bright); transform:translateY(-1px); box-shadow:0 4px 12px rgba(16,22,15,0.22);}
+.btn-ghost{
+  background:transparent;
+  color:var(--chalk-dim);
+  border-color:var(--line-on-dark);
+}
+.btn-ghost:hover{border-color:var(--chalk); color:var(--chalk);}
+.btn:focus-visible{outline:2px solid var(--stripe-gold-bright); outline-offset:3px;}
+
+/* ---------- LOGO MARK ----------
+   Sharp-cornered belt rectangle with the stripe in the gap. The belt takes
+   currentColor, so set `color` on the mark (or a parent) per context. */
+.logo-mark{display:block; flex-shrink:0;}
+.logo-mark .logo-mark__stripe{fill:var(--stripe-gold);}
