@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Couch to First Stripe — post-signup success page (success.html)
+   Requires base.css. The body uses .surface-dark .surface-glow.
+   ========================================================================== */
+
+.success-page{
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  padding:2rem 1.5rem;
+}
+.success-box{max-width:480px;}
+.success-box .logo-mark{margin:0 auto 1.5rem; color:var(--chalk);}
+.success-box .eyebrow{display:block; margin-bottom:1.2rem; font-size:0.75rem; letter-spacing:0.14em;}
+.success-box h1{
+  font-size:clamp(2rem, 5vw, 3rem);
+  margin:0 0 1.2rem;
+  line-height:1.05;
+}
+.success-box p{font-size:1.02rem; margin:0 0 2rem;}

@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Couch to First Stripe — homepage (index.html)
+   Requires base.css.
+   ========================================================================== */
+
+/* ---------- SECTIONS ---------- */
+.section{padding:5.5rem 1.5rem;}
+.section--center{text-align:center;}
+
+.section-title{font-size:clamp(1.8rem, 3.4vw, 2.6rem);}
+.section-title--sm{font-size:clamp(1.7rem, 3.2vw, 2.3rem);}
+.section-title--lg{font-size:clamp(2rem, 4vw, 3rem);}
+.eyebrow + .section-title{margin-top:0.6rem;}
+
+.lede{
+  max-width:600px;
+  margin:0 auto;
+  font-size:1.08rem;
+}
+
+/* ---------- SITE NAV ---------- */
+.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:var(--mat-navy-deep);
+  padding:0.7rem 1.5rem;
+  display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid rgba(242,239,231,0.1);
+}
+.site-nav .brand{
+  display:flex; align-items:center; gap:0.55rem;
+  text-decoration:none;
+  color:var(--chalk);
+}
+.site-nav .brand span{
+  font-family:var(--display); font-weight:800;
+  font-size:0.85rem;
+  letter-spacing:0.03em; text-transform:uppercase;
+}
+.site-nav .nav-cta{
+  font-family:var(--mono); font-size:0.7rem;
+  color:var(--chalk-dim); text-decoration:none;
+  border:1px solid var(--line-on-dark);
+  padding:0.4rem 0.8rem; border-radius:2px;
+  transition:color 0.15s ease, border-color 0.15s ease;
+}
+.site-nav .nav-cta:hover{color:var(--chalk); border-color:var(--chalk);}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:6rem 1.5rem 5rem;
+  text-align:center;
+}
+.hero .eyebrow{display:block; margin-bottom:1.4rem;}
+.hero h1{
+  font-size:clamp(2.6rem, 7vw, 5.2rem);
+  line-height:0.98;
+}
+.hero .lede{max-width:560px; margin-top:1.6rem;}
+
+.belt-wrap{
+  margin:3rem auto 2.5rem;
+  max-width:560px;
+}
+.belt-wrap svg{width:100%; height:auto; display:block;}
+
+.cta-row{
+  margin-top:2.4rem;
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* ---------- WHAT THIS IS ---------- */
+.what-is .wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:start;
+}
+.what-is p{font-size:1.02rem;}
+.tatami-mark{
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:280px;
+  color:var(--mat-navy);
+}
+
+/* ---------- HOW IT WORKS ---------- */
+.track{
+  position:relative;
+  margin:3rem 0 3.5rem;
+  height:6px;
+  background:rgba(242,239,231,0.15);
+  border-radius:3px;
+  max-width:640px;
+}
+.track-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg, var(--chalk-dim), var(--stripe-gold));
+  border-radius:3px;
+  transition:width 1.1s ease;
+}
+
+.steps{
+  display:grid;
+  gap:2.4rem;
+}
+.step{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:1.2rem;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.step.is-visible{opacity:1; transform:translateY(0);}
+.step-num{
+  font-family:var(--mono);
+  font-size:0.85rem;
+  color:var(--mat-navy);
+  background:var(--chalk-dim);
+  width:44px; height:44px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  border:2px solid transparent;
+}
+.step.is-final .step-num{
+  background:var(--stripe-gold);
+  color:var(--ink);
+  box-shadow:0 0 0 4px rgba(82,200,120,0.22);
+}
+.step h3{
+  font-family:var(--body);
+  font-weight:600;
+  text-transform:none;
+  font-size:1.18rem;
+  letter-spacing:0;
+  margin-bottom:0.3rem;
+}
+.step p{margin:0; font-size:0.98rem;}
+
+/* ---------- CARD GRID ----------
+   Labeled cards with a rule on top (side rule on mobile). Used for the
+   schedule and gear sections. */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1.6rem;
+  list-style:none;
+  margin:2.6rem 0 0; padding:0;
+}
+.card-grid--2{grid-template-columns:repeat(2, 1fr);}
+.card-grid li{
+  border-top:2px solid var(--mat-navy);
+  padding-top:1rem;
+}
+.card-label{
+  font-family:var(--mono);
+  font-size:0.7rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--rust);
+  display:block;
+  margin-bottom:0.4rem;
+}
+.card-grid p{margin:0; font-size:0.96rem;}
+
+/* ---------- COMPLETION DAY ---------- */
+.completion{
+  background:linear-gradient(180deg, var(--mat-navy) 0%, var(--mat-navy-deep) 100%);
+}
+.completion .section-title{margin-bottom:1.6rem;}
+.highlight{color:var(--stripe-gold-bright); font-weight:600;}
+
+/* ---------- INSTRUCTOR ---------- */
+.instructor-wrap{
+  display:flex;
+  align-items:center;
+  gap:2.2rem;
+  flex-wrap:wrap;
+}
+.instructor-photo{
+  width:120px; height:120px;
+  border-radius:50%;
+  background:#dedbcf;
+  flex-shrink:0;
+  overflow:hidden;
+}
+.instructor-photo img{
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center center;
+  transform:scale(1.65);
+  display:block;
+}
+.instructor-info{flex:1; min-width:240px;}
+.instructor-info p{font-size:0.98rem; font-style:italic;}
+.credential{
+  font-family:var(--mono);
+  font-size:0.78rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  color:var(--rust);
+  margin:0.5rem 0 0.9rem;
+}
+
+/* ---------- SIGNUP ---------- */
+.signup p{max-width:480px; margin:0.8rem auto 2rem;}
+
+/* ---------- FOOTER ---------- */
+.site-footer{
+  background:var(--ink);
+  color:var(--chalk-dim);
+  text-align:center;
+  padding:2.2rem 1.5rem;
+  font-family:var(--mono);
+  font-size:0.78rem;
+  letter-spacing:0.04em;
+}
+.site-footer a{color:var(--chalk);}
+.footer-brand{
+  display:flex; align-items:center; justify-content:center; gap:0.5rem;
+  text-transform:uppercase;
+}
+.footer-links{margin-top:0.6rem;}
+.social-row{
+  display:flex; justify-content:center; gap:1rem;
+  margin-top:1rem;
+}
+.site-footer .social-row a{
+  color:var(--chalk-dim);
+  display:flex; align-items:center; justify-content:center;
+  transition:color 0.15s ease;
+}
+.site-footer .social-row a:hover,
+.site-footer .social-row a:focus-visible{color:var(--stripe-gold-bright);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:720px){
+  .what-is .wrap{grid-template-columns:1fr;}
+  .tatami-mark{margin:0 auto; max-width:180px;}
+  .card-grid, .card-grid--2{grid-template-columns:1fr;}
+  .card-grid li{border-top:none; border-left:2px solid var(--mat-navy); padding:0 0 0 1rem;}
+  .instructor-wrap{flex-direction:column; text-align:center;}
+}
