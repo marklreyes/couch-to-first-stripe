@@ -1,0 +1,15 @@
+# Netlify response headers — https://docs.netlify.com/routing/headers/
+
+# Internal brand guide: hosted, but kept out of search engines. The header
+# also covers crawlers that skip the page's <meta name="robots"> tag.
+# Both paths are listed because Netlify serves the page with and without .html.
+/brand-guide
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+/brand-guide.html
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+
+# Post-signup page: no search value.
+/success
+  X-Robots-Tag: noindex
+/success.html
+  X-Robots-Tag: noindex

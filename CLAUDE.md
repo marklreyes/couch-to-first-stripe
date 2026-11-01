@@ -21,6 +21,18 @@ a real reason not to.
   page, each loaded after `base.css`
 - `js/main.js` — How It Works scroll-reveal (loaded with `defer`)
 - `images/favicon.svg` — the logo mark favicon, used by every page
+- `brand-guide.html` + `css/brand-guide.css` — **internal** brand reference
+  (palette with hex/RGB/CMYK, icon, badge, lockups, single-color, merch
+  previews). Hosted but private-by-obscurity:
+  - **Never link to it** from any public page, sitemap, or social post.
+  - It has `<meta name="robots" content="noindex, nofollow, ...">` and
+    `_headers` sends a matching `X-Robots-Tag` header. Keep both.
+  - **No Google Analytics tag** on this page (it would only count your own
+    visits).
+  - **Don't add it to `robots.txt`.** A Disallow line would stop crawlers from
+    seeing the noindex, and robots.txt is public, so it would advertise the URL.
+- `_headers` — Netlify response headers (`X-Robots-Tag` for the brand guide
+  and success page). Not served as a page.
 
 Every page includes the Google Analytics tag (`G-ERTBRT8GX6`) in `<head>`.
 Add it to any new page. `success.html` is the signup conversion page: mark its
@@ -75,8 +87,7 @@ manages domain config entirely through its own dashboard.
 - **Color palette is deliberately green** (tatami-mat inspired), not the
   black/red/white/blue that's standard in martial-arts branding. This was a
   conscious choice to visually differentiate from typical gym/competition
-  branding. Full palette with hex/RGB/CMYK lives in the separate
-  `couch-to-first-stripe-logo-concept.html` reference file.
+  branding. Full palette with hex/RGB/CMYK lives in `brand-guide.html`.
 - **The logo icon has sharp, square corners — no rounded corners, ever.**
   Earlier rounded-corner versions (and a separate knot/tied-belt icon concept)
   were rejected because the combination of rounded, overlapping organic shapes
@@ -125,8 +136,6 @@ manages domain config entirely through its own dashboard.
   Instagram and YouTube links are real.
 - City of Escondido registration URL — not available yet. When it is, link it
   from the hero CTA, the Schedule & Registration section, and the signup copy.
-- `couch-to-first-stripe-logo-concept.html` (palette reference) is not in this
-  repo.
 - MailerLite: the signup form is the live embed (`data-form="AgVjm7"` in the
   `#signup` section). Config: single opt-in, no confirmation checkbox, no GDPR
   marketing-permissions fields, no interest groups, reCAPTCHA on, hidden

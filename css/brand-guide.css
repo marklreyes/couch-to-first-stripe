@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Couch to First Stripe — internal brand guide (brand-guide.html)
+   Requires base.css. Not linked from the public site; see CLAUDE.md.
+   ========================================================================== */
+
+.guide-page{
+  --sheet: #e9e6dc;            /* page backdrop, slightly darker than chalk */
+  --card-border: #d8d5c9;
+  --print-black: #0f0f0f;
+  --charcoal: #222;
+  --sage-text: #3f8a5c;        /* lockup wordmark green on light backgrounds */
+  background:var(--sheet);
+  padding:3rem 1.5rem;
+}
+
+/* ---------- PAGE HEADER / SECTIONS ---------- */
+.guide-header{margin-bottom:3rem;}
+.guide-header h1{font-size:clamp(2rem, 5vw, 3rem); color:var(--mat-navy);}
+
+.guide-section{margin-bottom:4rem;}
+.guide-section > h2{font-size:1.5rem; margin-bottom:0.3rem;}
+.guide-note{
+  font-family:var(--mono); font-size:0.78rem; color:var(--stone-light);
+  margin:0 0 1.6rem; max-width:580px;
+}
+
+/* ---------- CARDS ---------- */
+.guide-row{display:flex; gap:1.5rem; flex-wrap:wrap; align-items:flex-end;}
+.guide-row--top{gap:1.2rem; align-items:flex-start; list-style:none; margin:0; padding:0;}
+
+.guide-card{
+  --caption: var(--stone-light);
+  background:#fff; border:1px solid var(--card-border); border-radius:10px;
+  margin:0; padding:1.5rem;
+  display:flex; flex-direction:column; align-items:center; gap:0.7rem;
+  max-width:100%;
+}
+.guide-card svg{display:block; max-width:100%; height:auto;}
+.guide-card--pine{background:var(--mat-navy); --caption: var(--chalk-dim);}
+.guide-card--chalk{background:var(--chalk);}
+.guide-card--charcoal{background:var(--charcoal); --caption: #aaa;}
+.guide-card--wide{flex:0 1 440px;}
+
+.guide-caption{
+  font-family:var(--mono); font-size:0.72rem; text-align:center;
+  color:var(--caption);
+}
+
+/* ---------- PALETTE SWATCHES ---------- */
+.swatch{width:160px; padding:0; gap:0;}
+.swatch__chip{width:100%; height:90px; border-radius:10px 10px 0 0;}
+.swatch__body{padding:0.9rem; width:100%;}
+.swatch__name{
+  font-size:0.85rem; margin-bottom:0.4rem; min-height:2.2rem;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  color:var(--ink);
+}
+.swatch__values{
+  margin:0; font-family:var(--mono); font-size:0.72rem; line-height:1.6;
+  color:var(--stone-light);
+}
+
+.swatch--pine{background:var(--mat-navy);}
+.swatch--pine-deep{background:var(--mat-navy-deep);}
+.swatch--chalk{background:var(--chalk); border-bottom:1px solid var(--card-border);}
+.swatch--chalk-dim{background:var(--chalk-dim);}
+.swatch--stripe{background:var(--stripe-gold);}
+.swatch--stripe-bright{background:var(--stripe-gold-bright);}
+.swatch--sea{background:var(--tatami-green);}
+.swatch--ink{background:var(--ink);}
+.swatch--wood{background:var(--rust);}
+
+/* ---------- SVG ARTWORK ----------
+   Artwork shapes use fill="currentColor"; a color class on the shape or a
+   parent <g> picks the brand color. Logo marks use .logo-mark__stripe from
+   base.css for the stripe. */
+.color-pine{color:var(--mat-navy);}
+.color-chalk{color:var(--chalk);}
+.color-chalk-dim{color:var(--chalk-dim);}
+.color-stripe{color:var(--stripe-gold);}
+.color-stripe-bright{color:var(--stripe-gold-bright);}
+.color-sage{color:var(--sage-text);}
+.color-print-black{color:var(--print-black);}
+
+.svg-display{font-family:var(--display); font-weight:800;}
+.svg-body{font-family:var(--body);}
+.svg-mono{font-family:var(--mono);}
+
+.badge-ring{fill:var(--mat-navy); stroke:var(--chalk);}
+
+/* Mockup props for the "In context" previews — not brand colors. */
+.prop-tee{fill:#d9d6ca; stroke:#b9b6aa;}
+.prop-cap{fill:#3a3a38;}
+.prop-cap-brim{fill:#2a2a28;}
+.prop-business-card{fill:var(--mat-navy);}
+.prop-paper{fill:#fff; stroke:var(--card-border);}
+.prop-rule{stroke:var(--card-border);}
+.prop-rule-faint{stroke:#eee;}

@@ -122,4 +122,4 @@ a{color:inherit;}
    Sharp-cornered belt rectangle with the stripe in the gap. The belt takes
    currentColor, so set `color` on the mark (or a parent) per context. */
 .logo-mark{display:block; flex-shrink:0;}
-.logo-mark .logo-mark__stripe{fill:var(--stripe-gold);}
+.logo-mark__stripe{fill:var(--stripe-gold);}
