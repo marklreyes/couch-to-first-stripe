@@ -22,6 +22,11 @@ a real reason not to.
 - `js/main.js` — How It Works scroll-reveal (loaded with `defer`)
 - `images/favicon.svg` — the logo mark favicon, used by every page
 
+Every page includes the Google Analytics tag (`G-ERTBRT8GX6`) in `<head>`.
+Add it to any new page. `success.html` is the signup conversion page: mark its
+page view as a key event in Google Analytics. The privacy policy's "Site
+Analytics" section discloses this, so keep it in sync if tracking changes.
+
 ## CSS conventions
 
 - **No inline `style=` attributes and no `<style>` blocks.** Put shared rules
