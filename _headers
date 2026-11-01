@@ -13,3 +13,9 @@
   X-Robots-Tag: noindex
 /success.html
   X-Robots-Tag: noindex
+
+# Partner inquiry confirmation: no search value.
+/b2b-success
+  X-Robots-Tag: noindex
+/b2b-success.html
+  X-Robots-Tag: noindex
