@@ -17,9 +17,23 @@ a real reason not to.
 - `css/base.css` — shared by every page: palette/font tokens, reset, headings,
   `.eyebrow`, `.btn`, `.logo-mark`, `.wrap`, and the `.surface-light` /
   `.surface-dark` / `.surface-glow` backgrounds
-- `css/home.css`, `css/privacy.css`, `css/success.css` — one stylesheet per
-  page, each loaded after `base.css`
-- `js/main.js` — How It Works scroll-reveal (loaded with `defer`)
+- `b2b.html` — partner page pitching the program to recreation departments,
+  adult schools, community centers, etc. Linked from the homepage nav as a
+  quiet text link ("For Partners", hidden under 560px) and from the footer
+  ("Partner With Us"). Keep it secondary: the homepage's primary action is the
+  student registration reminder. Holds the partner inquiry form (see below).
+- `b2b-success.html` — confirmation page after a partner inquiry (the form's
+  `action`). Uses `success.css`. `noindex`.
+- `css/components.css` — shared marketing components used by `index.html` and
+  `b2b.html`: nav, hero, sections/titles, `.lede`, `.cta-row`, steps + track,
+  `.card-grid`, form fields, footer
+- `css/home.css`, `css/b2b.css`, `css/privacy.css`, `css/success.css` — one
+  stylesheet per page, loaded after `base.css` (and `components.css` where used)
+- `js/main.js` — steps scroll-reveal (index and b2b; loaded with `defer`)
+- `js/b2b.js` — partner page: UTM/referrer capture into hidden form fields,
+  `cta_click` and `inquiry_start` events, hands lead details to the
+  confirmation page
+- `js/b2b-success.js` — sends one `generate_lead` event per submitted inquiry
 - `images/favicon.svg` — the logo mark favicon, used by every page
 - `brand-guide.html` + `css/brand-guide.css` — **internal** brand reference
   (palette with hex/RGB/CMYK, icon, badge, lockups, single-color, merch
@@ -32,12 +46,35 @@ a real reason not to.
   - **Don't add it to `robots.txt`.** A Disallow line would stop crawlers from
     seeing the noindex, and robots.txt is public, so it would advertise the URL.
 - `_headers` — Netlify response headers (`X-Robots-Tag` for the brand guide
-  and success page). Not served as a page.
+  and both success pages). Not served as a page.
 
 Every page includes the Google Analytics tag (`G-ERTBRT8GX6`) in `<head>`.
 Add it to any new page. `success.html` is the signup conversion page: mark its
 page view as a key event in Google Analytics. The privacy policy's "Site
 Analytics" section discloses this, so keep it in sync if tracking changes.
+
+## Partner inquiry form (b2b.html)
+
+- Uses **Netlify Forms** (`data-netlify="true"`, form name `partner-inquiry`),
+  not MailerLite. It's an interim lead-capture setup: submissions go to the
+  Netlify dashboard (Forms tab) and can email a notification. B2B contacts
+  stay off the student mailing list.
+- **Form detection must be enabled** in Netlify (Site configuration → Forms)
+  or submissions are dropped. Can't be tested locally: `python3 -m
+  http.server` rejects the POST.
+- Spam: Netlify's built-in filtering plus a honeypot field
+  (`netlify-honeypot="company_website"`).
+- Hidden fields `lead_source`, `utm_*`, and `referrer` are filled by
+  `js/b2b.js` for attribution. Use UTM links in outreach, e.g.
+  `/b2b.html?utm_source=<city>&utm_medium=email&utm_campaign=<campaign>`.
+- Analytics events: `cta_click` (with `cta_location`), `inquiry_start`, and
+  `generate_lead` (fired on `b2b-success.html`, with `organization_type`,
+  `timeline`, `utm_source`). **Never send names, emails, or phone numbers to
+  Google Analytics.** Mark `generate_lead` as a key event in GA.
+- Field names are plain (`name`, `email`, `organization`, ...). If this moves
+  to MailerLite later, remember `source` is reserved there.
+- The privacy policy's "Partner Inquiries" section lists the collected fields
+  and names Netlify as processor. Keep it in sync with the form.
 
 ## CSS conventions
 
@@ -47,8 +84,13 @@ Analytics" section discloses this, so keep it in sync if tracking changes.
   `.surface-dark`, which set `--heading`, `--text-body`, and `--accent`.
   Headings, paragraphs, and `.eyebrow` read those tokens, so they don't need
   light/dark variants of their own.
-- Reusable homepage pieces: `.section`, `.section-title` (`--sm` / `--lg`),
-  `.lede`, `.card-grid` (`--2`) + `.card-label`, `.highlight`.
+- Shared marketing components live in `components.css`: `.section`,
+  `.section-title` (`--sm` / `--lg`), `.lede`, `.cta-row`, `.steps`/`.track`,
+  `.card-grid` (`--2`) + `.card-label`, `.form-grid` + `.field`
+  (`--full`), `.site-nav`, `.site-footer`. Build new marketing pages from
+  these before adding page-specific CSS.
+- The nav and footer markup is duplicated in each page's HTML (no build step
+  for includes). Change it in every page that has it.
 - The logo mark SVG uses `fill="currentColor"` for the belt and the
   `.logo-mark__stripe` class for the stripe. Set its color with `color`.
 - Palette token names are historical (`--mat-navy` and `--stripe-gold` are

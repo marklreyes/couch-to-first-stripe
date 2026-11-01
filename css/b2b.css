@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Couch to First Stripe — partner / B2B page (b2b.html)
+   Requires base.css and components.css.
+   ========================================================================== */
+
+/* Longer headline than the homepage, so a smaller ceiling. */
+.hero h1{font-size:clamp(2.4rem, 6vw, 4.4rem); max-width:820px; margin:0 auto;}
+
+/* ---------- NOW RUNNING ---------- */
+.proof{
+  background:linear-gradient(180deg, var(--mat-navy) 0%, var(--mat-navy-deep) 100%);
+}
+.proof .section-title{margin-bottom:1.6rem;}
+
+/* ---------- INSTRUCTOR ---------- */
+.instructor-strip p{max-width:640px; margin:1rem 0 0; font-size:1.02rem;}
+
+/* ---------- INQUIRY FORM ---------- */
+.inquire{border-top:1px solid var(--chalk-dim);}
+.inquire-intro{margin:0.8rem 0 2.2rem; font-size:1.02rem;}
