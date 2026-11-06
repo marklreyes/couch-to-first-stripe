@@ -226,6 +226,17 @@
 }
 .site-footer .social-row a:hover,
 .site-footer .social-row a:focus-visible{color:var(--stripe-gold-bright);}
+/* Community flags: small and uniform, like a row of flags on a gym wall. */
+.flag-row{
+  display:flex; justify-content:center; flex-wrap:wrap; gap:0.6rem;
+  list-style:none;
+  margin:1.4rem 0 0; padding:0;
+}
+.flag-row li{display:flex;}
+.flag{
+  width:30px; height:20px;
+  outline:1px solid rgba(242,239,231,0.12);
+}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:720px){

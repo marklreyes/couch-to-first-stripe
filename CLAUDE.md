@@ -35,6 +35,11 @@ a real reason not to.
   confirmation page
 - `js/b2b-success.js` — sends one `generate_lead` event per submitted inquiry
 - `images/favicon.svg` — the logo mark favicon, used by every page
+- `images/flags.svg` — sprite of the community flags in the footer (USA,
+  Philippines, South Korea, Brazil, California, Hawaii), referenced with
+  `<use href="images/flags.svg#flag-us">`. All share a 3:2 box like a row of
+  gym flags. Keep clip paths and gradients out of it: they're unreliable
+  through an external `<use>`. Brazil omits the stars and motto at this size.
 - `brand-guide.html` + `css/brand-guide.css` — **internal** brand reference
   (palette with hex/RGB/CMYK, icon, badge, lockups, single-color, merch
   previews). Hosted but private-by-obscurity:
