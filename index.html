@@ -89,18 +89,19 @@
       <p>Couch to First Stripe is a beginner-friendly introduction to Brazilian Jiu-Jitsu, built for adults who've never trained before. Inspired by programs like Couch to 5K, it takes you from zero experience through the real foundations of the art: safe falling, escapes, positional control, and mat awareness, while building genuine fitness along the way.</p>
       <p>Every class is built for newcomers. No experience required, no prior athleticism assumed, no ego at the door. Come curious. Leave capable.</p>
     </div>
-    <svg class="tatami-mark" viewBox="0 0 200 200" role="img" aria-label="Woven tatami mat pattern">
-      <g stroke="currentColor" stroke-width="2" fill="none" opacity="0.85">
-        <rect x="10" y="10" width="85" height="85"/>
-        <rect x="105" y="10" width="85" height="85"/>
-        <rect x="10" y="105" width="85" height="85"/>
-        <rect x="105" y="105" width="85" height="85"/>
-        <line x1="10" y1="52.5" x2="95" y2="52.5"/>
-        <line x1="105" y1="52.5" x2="190" y2="52.5"/>
-        <line x1="10" y1="147.5" x2="95" y2="147.5"/>
-        <line x1="105" y1="147.5" x2="190" y2="147.5"/>
-      </g>
-    </svg>
+    <!-- Photo frames laid out like tatami: every mat is the same 2:1
+         rectangle, horizontal (--a, --b, --d, --f) or vertical (--c, --e),
+         arranged so no four corners meet. Horizontal photos are 720x360
+         crops, vertical ones 360x720, in images/mat/. An empty frame shows
+         the woven mat. -->
+    <div class="tatami-gallery" role="group" aria-label="Photos from the mat">
+      <figure class="mat mat--a"><img src="images/mat/team-photo.jpg" alt="A class of jiu-jitsu students in gis posing together on the mat" loading="lazy"></figure>
+      <figure class="mat mat--b"><img src="images/mat/class-group.jpg" alt="Students of all ranks kneeling and standing together after class" loading="lazy"></figure>
+      <figure class="mat mat--c"><img src="images/mat/teammates.jpg" alt="Three training partners standing together on the mat" loading="lazy"></figure>
+      <figure class="mat mat--d"><img src="images/mat/medal-day.jpg" alt="Two friends laughing together at a tournament, one wearing a medal" loading="lazy"></figure>
+      <figure class="mat mat--e"><img src="images/mat/lineup.jpg" alt="Teammates lined up on the mat, smiling after training" loading="lazy"></figure>
+      <figure class="mat mat--f"><img src="images/mat/after-class.jpg" alt="Two training partners in gis sitting and talking after class" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 

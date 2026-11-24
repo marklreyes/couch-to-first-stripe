@@ -18,11 +18,41 @@
   align-items:start;
 }
 .what-is p{font-size:1.02rem;}
-.tatami-mark{
+/* Tatami photo frames. The dark gaps are the mats' cloth edging (heri). */
+.tatami-gallery{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-template-rows:repeat(3, 1fr);
+  grid-template-areas:
+    "a a b b"
+    "c d d e"
+    "c f f e";
+  gap:6px;
+  padding:6px;
   width:100%;
-  aspect-ratio:1/1;
-  max-width:280px;
-  color:var(--mat-navy);
+  aspect-ratio:4/3;
+  background:var(--mat-navy);
+}
+.mat{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  /* Woven rush lines, shown until a photo fills the frame. */
+  background:
+    repeating-linear-gradient(90deg, rgba(22,59,42,0.09) 0 1px, transparent 1px 5px),
+    var(--chalk-dim);
+}
+.mat--a{grid-area:a;}
+.mat--b{grid-area:b;}
+.mat--c{grid-area:c;}
+.mat--d{grid-area:d;}
+.mat--e{grid-area:e;}
+.mat--f{grid-area:f;}
+.mat img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 /* ---------- COMPLETION DAY ---------- */
@@ -70,6 +100,6 @@
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:720px){
   .what-is .wrap{grid-template-columns:1fr;}
-  .tatami-mark{margin:0 auto; max-width:180px;}
+  .tatami-gallery{margin:0 auto; max-width:480px;}
   .instructor-wrap{flex-direction:column; text-align:center;}
 }
