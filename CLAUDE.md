@@ -11,7 +11,8 @@ a real reason not to.
 
 - `index.html` — the main site
 - `privacy.html` — privacy policy, linked from the footer (and should be linked
-  from the MailerLite signup form)
+  from the MailerLite signup form). Covers only the email list and partner
+  inquiries; city registration data falls under the City's own policies.
 - `success.html` — custom post-signup success page, set as the redirect URL
   in MailerLite's form settings (Custom success page)
 - `css/base.css` — shared by every page: palette/font tokens, reset, headings,
@@ -150,32 +151,45 @@ manages domain config entirely through its own dashboard.
 - **Fonts**: `Big Shoulders Display` (headings), `Work Sans` (body),
   `IBM Plex Mono` (small/mono labels). Loaded via Google Fonts.
 
-## Current offering — Winter 2027
+## Current offering
 
 - Offered through **Escondido Recreation**. Registration opens **Tuesday,
-  Dec. 8 at 10 a.m.** through the **City of Escondido**, which handles
-  registration, payment, and waivers. No registration URL yet.
-- Two separate **8-week courses**, **Monday and Wednesday, 1 hour each**.
-  Session 1 begins in January; Session 2 begins March 1, 2027. Each course
-  stands alone, so a newcomer can join at the start of either one.
-- A **single-class drop-in** is available.
+  Dec. 8 at 10 a.m.** through Escondido Recreation; the **City of
+  Escondido** handles registration, payment, and waivers. No registration URL
+  yet.
+- **One 8-week course** this season, **Monday and Wednesday, 1 hour each**,
+  starting in March. A second course may be added later: don't promise it.
+  "More courses to come" is fine.
 - **Adults 18+**, no experience needed.
-- **Gear:** a gi is required for every class, including a drop-in. Students
-  also bring a water bottle and a towel, like going to the gym.
+- **Gear:** a gi is required for every class. Students also bring a water
+  bottle and a towel, like going to the gym.
 - **Instructor:** Mark Reyes, BJJ brown belt.
-- Students earn a **certificate of completion**. **There is no stripe at the
-  end of the course.** The program name stays, but the stripe is a later
-  milestone: no copy should promise one.
-- **Do not put prices or exact course start dates on the site.** Show session
-  months only ("January", "March"). The registration-opening date is OK.
+- Students earn a **certificate of completion** on Completion Day. **There
+  is no stripe at the end of the course.** The program name stays, but the
+  stripe is a later milestone: no copy should promise one.
 - The instructor bio mentions Gracie Barra Escondido and Ribeiro Jiu-Jitsu
   Carlsbad. These were left as-is on purpose; don't change them without asking.
 
+### Keep copy evergreen
+
+- **No hard dates in page copy.** Show the month only ("starting in March"),
+  no day or year, and no season labels like "Winter 2027". The one exception
+  is the registration-opening date (Dec. 8, 10 a.m.) in the signup section
+  and on `success.html`. Exact dates (day, date, year) are planned for a
+  countdown timer component instead of body copy.
+- **Leave off the site for now:**
+  - Prices and fees. The city's catalog is the authority.
+  - The drop-in option, until the city confirms how it will be listed.
+  - The end date and individual class dates, until the city confirms its
+    holiday calendar.
+  - The January start and any "two courses" wording from earlier drafts.
+- **The partner page (`b2b.html`) stays venue-neutral.** Each recreation
+  center sets what it can offer, so don't promise a drop-in, specific dates,
+  or a fixed schedule there. Describe the format ("designed as an 8-week
+  course") and say details are set with each partner.
+
 ## Outstanding placeholders — not yet real, needed before full public launch
 
-- `privacy.html`: `[DATE]` (last updated) and the `[X days/...]` retention
-  line still need real values. The "Note to self before publishing" box is
-  visible on the live page and should be removed before launch.
 - Footer domain link (`couchtofirststripe.com`) and handle link
   (`@couchtofirststripe`) both point to `#`. Confirm the registered domain and
   handle, then link them (the Instagram URL is already used in the social row).
