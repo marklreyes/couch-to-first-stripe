@@ -96,3 +96,4 @@
 .prop-paper{fill:#fff; stroke:var(--card-border);}
 .prop-rule{stroke:var(--card-border);}
 .prop-rule-faint{stroke:#eee;}
+.guide-page .fine-print{color:var(--stone-light); margin:0 0 3rem;}

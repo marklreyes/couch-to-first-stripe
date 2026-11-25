@@ -193,14 +193,17 @@ manages domain config entirely through its own dashboard.
 - The program name carries **™**, never **®**. Nothing is federally
   registered. Switch to ® only after a federal registration exists and Mark
   says so.
-- ™ appears only in brand spots: the sticky header brand text, the footer
-  wordmark, the hero headline (once), and the "Back to Couch to First
-  Stripe" links on `privacy.html` and `success.html`. Markup:
+- ™ appears only in brand spots: the sticky header brand text and footer
+  wordmark (`index.html`, `b2b.html`), the homepage hero headline (once),
+  and the "Back to Couch to First Stripe" links on `privacy.html` and
+  `success.html`. Markup:
   `<sup class="tm">™</sup>` (styled in `base.css`). Not in `<title>`, body
   copy, the favicon, or the logo graphic.
-- Copyright line, in `.fine-print` at the bottom of `index.html`,
-  `privacy.html`, and `success.html`: "© 2026 Mark Reyes. All rights
-  reserved."
+- Copyright line, in `.fine-print` at the bottom of every page (`index`,
+  `b2b`, `privacy`, `success`, `b2b-success`, `brand-guide`): "© 2026 Mark
+  Reyes. All rights reserved." Add it to any new page.
+- `brand-guide.html` documents these rules in its "Trademark & copyright"
+  section. Its lockup and merch artwork stays without ™.
 - If the business moves into an LLC, update the copyright holder, the ™
   owner, and this section.
 - `IP-RECORDS.md` is the dated first-use log. It and `CLAUDE.md` sit in the
