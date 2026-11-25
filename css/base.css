@@ -123,3 +123,12 @@ a{color:inherit;}
    currentColor, so set `color` on the mark (or a parent) per context. */
 .logo-mark{display:block; flex-shrink:0;}
 .logo-mark__stripe{fill:var(--stripe-gold);}
+
+/* ---------- IP NOTICES ----------
+   ™ after the program name in brand spots only (see CLAUDE.md). It inherits
+   the surrounding color and doesn't change the line height. */
+.tm{font-size:max(0.45em, 0.6rem); vertical-align:super; line-height:0; margin-left:0.05em;}
+.fine-print{
+  font-family:var(--mono); font-size:0.78rem; letter-spacing:0.04em;
+  margin:1.4rem 0 0;
+}

@@ -27,3 +27,4 @@
 .prose h2{font-size:1.2rem; margin:2.2rem 0 0.6rem;}
 .prose p, .prose li{font-size:0.98rem;}
 .prose ul{padding-left:1.3rem;}
+.prose .fine-print{color:var(--stone-light); margin-top:3rem;}

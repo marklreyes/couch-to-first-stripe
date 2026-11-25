@@ -1,0 +1,4 @@
+# Internal notes live at the repo root, which Netlify publishes. Keep them
+# from being served.
+/CLAUDE.md       /404  404!
+/IP-RECORDS.md   /404  404!
