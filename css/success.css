@@ -18,3 +18,4 @@
   line-height:1.05;
 }
 .success-box p{font-size:1.02rem; margin:0 0 2rem;}
+.success-box .fine-print{margin-top:2rem; color:var(--chalk-dim);}

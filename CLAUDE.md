@@ -188,6 +188,28 @@ manages domain config entirely through its own dashboard.
   or a fixed schedule there. Describe the format ("designed as an 8-week
   course") and say details are set with each partner.
 
+## IP notices
+
+- The program name carries **™**, never **®**. Nothing is federally
+  registered. Switch to ® only after a federal registration exists and Mark
+  says so.
+- ™ appears only in brand spots: the sticky header brand text and footer
+  wordmark (`index.html`, `b2b.html`), the homepage hero headline (once),
+  and the "Back to Couch to First Stripe" links on `privacy.html` and
+  `success.html`. Markup:
+  `<sup class="tm">™</sup>` (styled in `base.css`). Not in `<title>`, body
+  copy, the favicon, or the logo graphic.
+- Copyright line, in `.fine-print` at the bottom of every page (`index`,
+  `b2b`, `privacy`, `success`, `b2b-success`, `brand-guide`): "© 2026 Mark
+  Reyes. All rights reserved." Add it to any new page.
+- `brand-guide.html` documents these rules in its "Trademark & copyright"
+  section. Its lockup and merch artwork stays without ™.
+- If the business moves into an LLC, update the copyright holder, the ™
+  owner, and this section.
+- `IP-RECORDS.md` is the dated first-use log. It and `CLAUDE.md` sit in the
+  published root, so `_redirects` forces a 404 for both. Add any new
+  internal file there too.
+
 ## Outstanding placeholders — not yet real, needed before full public launch
 
 - Footer domain link (`couchtofirststripe.com`) and handle link
