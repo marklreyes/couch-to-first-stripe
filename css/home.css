@@ -3,6 +3,11 @@
    Requires base.css and components.css.
    ========================================================================== */
 
+/* ---------- HERO TAGLINE ----------
+   Sits under the headline; the subhead follows closely so they read as one
+   block. */
+.hero-tagline + .lede{margin-top:0.6rem;}
+
 /* ---------- HERO ILLUSTRATION ---------- */
 .belt-wrap{
   margin:3rem auto 2.5rem;

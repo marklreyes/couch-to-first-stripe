@@ -150,6 +150,8 @@ manages domain config entirely through its own dashboard.
   Don't merge or confuse these — they serve different purposes.
 - **Fonts**: `Big Shoulders Display` (headings), `Work Sans` (body),
   `IBM Plex Mono` (small/mono labels). Loaded via Google Fonts.
+- **Tagline:** "Everybody starts somewhere." It carries no ™. The program
+  name and logo are the protected assets.
 
 ## Current offering
 
